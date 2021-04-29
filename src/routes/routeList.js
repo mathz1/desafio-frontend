@@ -1,4 +1,5 @@
 import * as pages from '../pages';
+import profile from '../pages/Profile/index';
 
 
 export const privateRouteList = [];
@@ -22,4 +23,10 @@ export const publicRouteList = [
     exact: true,
     title: 'Criar tarefa',
   },
+  {
+    path: '/profile',
+    component: profile,
+    exact: true,
+    title: 'Perfil'
+  }
 ];
