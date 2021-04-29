@@ -36,8 +36,8 @@
 }
 
 .profile-container header button {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 8px;
     border: 1px solid #dcdce6;
     background: transparent;
@@ -66,6 +66,10 @@
     padding: 24px;
     border-radius: 8px;
     position: relative;
+}
+
+.profile-container ul li .update {
+    margin-right: 30px;
 }
 
 .profile-container ul li button {

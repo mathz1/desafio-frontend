@@ -54,7 +54,7 @@ const Profile = () => {
                 }
             });
 
-            setTasks(tasks.filter(task => task.id !== id));
+            setTasks(tasks.filter(task => task._id !== id));
         }
         catch (err) {
             alert('Erro ao deletar tarefa, tente novamente.');
@@ -81,7 +81,7 @@ const Profile = () => {
 
             <ul>
                 {tasks.map(task => (
-                    <li key={task.id}>
+                    <li key={task._id}>
                         <strong>NOME:</strong>
                         <p>{task.name}</p>
 
@@ -91,8 +91,11 @@ const Profile = () => {
                         <strong>COMPLETA:</strong>
                         <p>{completed(task.completed)}</p>
 
-                        <button onClick={() => handleDeleteTask(task.id)} type="button">
+                        <button onClick={() => handleDeleteTask(task._id)} type="button">
                             <FiTrash2 size={20} color="#a8a8b3" />
+                        </button>
+                        <button className="update">
+                            <FiEdit2 size={20} color="#a8a8b3" />
                         </button>
                     </li>
                 ))}
