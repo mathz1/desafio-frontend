@@ -21,6 +21,12 @@ export const privateRouteList = [
     exact: true,
     title: 'Perfil'
   },
+  {
+    path: '/',
+    component: profile,
+    exact: true,
+    title: 'Perfil'
+  },
 ];
 
 export const publicRouteList = [
@@ -35,5 +41,11 @@ export const publicRouteList = [
     component: pages.Register,
     exact: true,
     title: 'Cadastro',
+  },
+  {
+    path: '/',
+    component: pages.Login,
+    exact: true,
+    title: 'Login',
   },
 ];

@@ -42,12 +42,12 @@ const Routes = () => {
         {authenticated ? (
           <>
             {privateRouteComponents}
-            <Redirect to="/profile" />
+            {/* <Redirect to="/profile" /> */}
           </>
         ) : (
           <>
             {publicRouteComponents}
-            <Redirect to="/login" />
+            {/* <Redirect to="/login" /> */}
           </>
         )}
       </Switch>
