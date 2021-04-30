@@ -2,7 +2,20 @@ import * as pages from '../pages';
 import profile from '../pages/Profile/index';
 
 
-export const privateRouteList = [];
+export const privateRouteList = [
+  {
+    path: '/CreateTask',
+    component: pages.CreateTask,
+    exact: true,
+    title: 'Criar tarefa',
+  },
+  {
+    path: '/profile',
+    component: profile,
+    exact: true,
+    title: 'Perfil'
+  },
+];
 
 export const publicRouteList = [
   {
@@ -17,16 +30,4 @@ export const publicRouteList = [
     exact: true,
     title: 'Cadastro',
   },
-  {
-    path: '/CreateTask',
-    component: pages.CreateTask,
-    exact: true,
-    title: 'Criar tarefa',
-  },
-  {
-    path: '/profile',
-    component: profile,
-    exact: true,
-    title: 'Perfil'
-  }
 ];

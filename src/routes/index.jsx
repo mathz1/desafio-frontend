@@ -2,7 +2,11 @@ import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom';
 import { privateRouteList, publicRouteList } from './routeList';
 
 const Routes = () => {
-  const authenticated = false;
+  var authenticated = false;
+
+  if (localStorage.getItem('token')) {
+    authenticated = true;
+  }
 
   const publicRouteComponents = publicRouteList.map(
     ({ component: Component, path, exact, title }) => {
@@ -38,12 +42,12 @@ const Routes = () => {
         {authenticated ? (
           <>
             {privateRouteComponents}
-            <Redirect to="/feed" />
+            <Redirect to="/profile" />
           </>
         ) : (
           <>
             {publicRouteComponents}
-            {/* <Redirect to="/login" /> */}
+            <Redirect to="/login" />
           </>
         )}
       </Switch>

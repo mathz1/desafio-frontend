@@ -20,7 +20,19 @@ const CreateTask = ({
             placeholder="Digite o nome da tarefa"
             onChange={onChange}
           />
-          <Select
+          <Input 
+            label="Prioridade"
+            type="text"
+            placeholder="Alta | Baixa"
+            onChange={onChangePriority}
+          />
+          <Input 
+            label="Completa:"
+            type="text"
+            placeholder="Sim | Não"
+            onChange={onChangeCompleted}
+          />
+          {/* <Select
             value={dataPriority}
             name="priority"
             label="Prioridade da tarefa"
@@ -33,7 +45,7 @@ const CreateTask = ({
             label="Finalizada"
             onChange={onChangeCompleted}
             optionList={[{ name: 'Não', value: false }, { name: 'Sim', value: true }]}
-          />
+          /> */}
           <Buttom text="Criar Tarefa" type="submit" />
         </Form>
       </CenteredContainer>
