@@ -2,7 +2,8 @@ import { Form, DivContainer, CenteredContainer } from '../../styles/publicRoutes
 import { Buttom, Input, Select, Link } from '../General';
 
 
-const CreateTask = ({
+const UpdateTaskForm = ({
+  onChangeId,
   onChangeName, 
   onChangePriority,
   onChangeCompleted, 
@@ -15,7 +16,13 @@ const CreateTask = ({
           <Link path="/profile" text="Close"/>
         <Form>
           <Input 
-            label="Tarefa"
+            label="id da Tarefa"
+            type="text"
+            placeholder="Digite o nome da tarefa"
+            onChange={onChangeId}
+          />
+          <Input 
+            label="Nome da Tarefa"
             type="text"
             placeholder="Digite o nome da tarefa"
             onChange={onChangeName}
@@ -32,11 +39,11 @@ const CreateTask = ({
             placeholder="Sim | Não"
             onChange={onChangeCompleted}
           />
-          <Buttom text="Criar Tarefa" type="button" onClick={onSubmit} />
+          <Buttom text="Atualizar Tarefa" type="button" onClick={onSubmit} />
         </Form>
       </CenteredContainer>
     </DivContainer>
   );
 };
 
-export default CreateTask;
+export default UpdateTaskForm;

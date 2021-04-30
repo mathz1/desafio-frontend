@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { CreateTaskForm } from '../../components';
+import { UpdateTaskForm } from '../../components';
 import api from '../../services/api';
 
 
-const CreatTasks = () => {
+const UpdateTasks = () => {
 
 
   const token = localStorage.getItem('token');
@@ -13,6 +13,8 @@ const CreatTasks = () => {
   const [priority, setPriority] = useState('baixa');
 
   const [completed, setCompleted] = useState('não');
+
+  const [idTask, setIdTask] = useState('');
 
   const handleName = (event) => {
     const { value } = event.target;
@@ -42,11 +44,19 @@ const CreatTasks = () => {
     };
   };
 
+  const handleIdTask = (event) => {
+    const { value } = event.target;
+
+    const id = value.trim();
+
+    setIdTask(id);
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      await api.post('tasks', {
+      await api.put(`tasks/${idTask}`, {
          name, priority, completed }, { headers: {
           Authorization: `Bearer ${token}`,
         } } )
@@ -58,7 +68,8 @@ const CreatTasks = () => {
   };
 
   return (
-    <CreateTaskForm 
+    <UpdateTaskForm
+    onChangeId={handleIdTask}
     onChangeName={handleName} 
     onChangeCompleted={handleCompleted} 
     onChangePriority={handlePriority} 
@@ -67,4 +78,4 @@ const CreatTasks = () => {
   );
 };
 
-export default CreatTasks;
+export default UpdateTasks;

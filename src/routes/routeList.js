@@ -10,6 +10,12 @@ export const privateRouteList = [
     title: 'Criar tarefa',
   },
   {
+    path: '/UpdateTask',
+    component: pages.UpdateTask,
+    exact: true,
+    title: 'Atualizar Tarefa',
+  },
+  {
     path: '/profile',
     component: profile,
     exact: true,
