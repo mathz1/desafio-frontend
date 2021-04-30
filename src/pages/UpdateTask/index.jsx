@@ -5,6 +5,7 @@ import api from '../../services/api';
 
 const UpdateTasks = () => {
 
+  const taskId = localStorage.getItem('taskId');
 
   const token = localStorage.getItem('token');
 
@@ -13,8 +14,6 @@ const UpdateTasks = () => {
   const [priority, setPriority] = useState('baixa');
 
   const [completed, setCompleted] = useState('não');
-
-  const [idTask, setIdTask] = useState('');
 
   const handleName = (event) => {
     const { value } = event.target;
@@ -44,19 +43,11 @@ const UpdateTasks = () => {
     };
   };
 
-  const handleIdTask = (event) => {
-    const { value } = event.target;
-
-    const id = value.trim();
-
-    setIdTask(id);
-  }
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      await api.put(`tasks/${idTask}`, {
+      await api.put(`tasks/${taskId}`, {
          name, priority, completed }, { headers: {
           Authorization: `Bearer ${token}`,
         } } )
@@ -69,7 +60,6 @@ const UpdateTasks = () => {
 
   return (
     <UpdateTaskForm
-    onChangeId={handleIdTask}
     onChangeName={handleName} 
     onChangeCompleted={handleCompleted} 
     onChangePriority={handlePriority} 

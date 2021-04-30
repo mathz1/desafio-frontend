@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { Link, useHistory } from 'react-router-dom';
 import { FiPower, FiTrash2, FiPlus, FiEdit2, FiList } from 'react-icons/fi';
-import { Link as LinkN } from '../../components/General'
 
 import './styles.css';
 
@@ -78,6 +77,16 @@ const Profile = () => {
         }
     }
 
+    async function handleUpdateTask(id) {
+        try {
+            localStorage.setItem('taskId', id);
+            history.push('/UpdateTask');
+        }
+        catch (err) {
+            alert('Erro ao atualizar tarefa, tente novamente.');
+        }
+    }
+
     return (
         <div className="profile-container">
             <header>
@@ -103,9 +112,6 @@ const Profile = () => {
             <ul>
                 {tasks.map(task => (
                     <li key={task._id}>
-                        <strong>ID:</strong>
-                        <p>{task._id}</p>
-
                         <strong>NOME:</strong>
                         <p>{task.name}</p>
 
@@ -118,12 +124,9 @@ const Profile = () => {
                         <button onClick={() => handleDeleteTask(task._id)} type="button">
                             <FiTrash2 size={20} color="#a8a8b3" />
                         </button>
-                        <a href='/UpdateTask'>
-                        <button to="/UpdateTask" className="update" type="button">
+                        <button onClick={() => handleUpdateTask(task._id)} className="update" type="button">
                             <FiEdit2 size={20} color="#a8a8b3" />
                         </button>
-                        </a>
-                        <LinkN path="/UpdateTask" text="Update" />
                     </li>
                 ))}
             </ul>

@@ -3,7 +3,6 @@ import { Buttom, Input, Select, Link } from '../General';
 
 
 const UpdateTaskForm = ({
-  onChangeId,
   onChangeName, 
   onChangePriority,
   onChangeCompleted, 
@@ -15,12 +14,6 @@ const UpdateTaskForm = ({
       <CenteredContainer>
           <Link path="/profile" text="Close"/>
         <Form>
-          <Input 
-            label="id da Tarefa"
-            type="text"
-            placeholder="Digite o nome da tarefa"
-            onChange={onChangeId}
-          />
           <Input 
             label="Nome da Tarefa"
             type="text"
