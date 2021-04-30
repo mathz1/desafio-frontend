@@ -2,7 +2,7 @@ import Logo from '../../assets/logo.svg';
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { Link, useHistory } from 'react-router-dom';
-import { FiPower, FiTrash2, FiPlus, FiEdit2 } from 'react-icons/fi';
+import { FiPower, FiTrash2, FiPlus, FiEdit2, FiList } from 'react-icons/fi';
 
 import './styles.css';
 
@@ -39,6 +39,7 @@ const Profile = () => {
                 }
             });
 
+            localStorage.clear();
             history.push('/login')
         }
         catch (err) {
@@ -61,6 +62,21 @@ const Profile = () => {
         }
     }
 
+    function order() {
+        try {
+            api.get('tasks/order', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            }).then(res => {
+                setTasks(res.data.tasks);
+            });
+        }
+        catch (err) {
+            alert('Erro ao ordenar tarefas, tente novamente.');
+        }
+    }
+
     return (
         <div className="profile-container">
             <header>
@@ -78,6 +94,10 @@ const Profile = () => {
             </header>
 
             <h1>Tarefas criadas</h1>
+
+            <button className="order" onClick={order} type="button" >
+                <FiList size={20} />
+            </button>
 
             <ul>
                 {tasks.map(task => (

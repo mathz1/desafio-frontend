@@ -5,6 +5,16 @@
     margin: 32px auto;
 }
 
+.profile-container .order {
+    background: transparent;
+    margin-bottom: 5px;
+    color: #6904A7;
+}
+
+.profile-container .order:hover {
+    color: #6904a7c2;
+}
+
 .profile-container header {
     display: flex;
     align-items: center;
