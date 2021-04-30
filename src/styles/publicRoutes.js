@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const DivContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  place-items: center;
+`;
+
 export const CenteredContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;

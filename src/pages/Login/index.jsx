@@ -1,4 +1,4 @@
-import { CenteredContainer, LinksContainer, Form, Header } from '../../styles/publicRoutes';
+import { CenteredContainer, LinksContainer, Form, Header, DivContainer } from '../../styles/publicRoutes';
 import { Input, Buttom, Link } from '../../components/General';
 import { useHistory } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/logo.svg'
@@ -31,6 +31,7 @@ const Login = () => {
   }
 
   return (
+    <DivContainer>
     <CenteredContainer>
       <Header>
         <Logo />
@@ -55,6 +56,7 @@ const Login = () => {
       </LinksContainer>
       </Form>
     </CenteredContainer>
+    </DivContainer>
     
     // <form>
     //   <input label='Login' />

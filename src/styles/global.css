@@ -13,5 +13,6 @@
 body {
   display: grid;
   place-items: center;
-  background-color: #fff;
+  /* background-image: linear-gradient(to right, #7f53ac 0, #657ced 100%); */
+  background-color: honeydew;
 }
